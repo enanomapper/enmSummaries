@@ -31,6 +31,7 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   <title>Zinc Oxide</title>
 
   <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="jquery.tablesorter.js"></script>
   <script type="text/javascript" src="lib/purl.js"></script>
   <script type="text/javascript" src="src/ambit.js"></script>
   <script type="text/javascript" src="src/Substance.js"></script>
@@ -48,6 +49,7 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   </script>
 
   <link rel="stylesheet" type="text/css" href="theme.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.blue.css">
 </head>
 
 <body>
@@ -77,15 +79,46 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
 
   <h3>All materials</h3>
   <h4>PhysChem Data</h4>
-  <p><table id="tableP-CHEM"></table></p>
+  <p><table id="tableP-CHEM" class="tablesorter">
+  <thead>
+    <tr>
+      <th>material label</th> 
+      <th>property</th> 
+      <th>provider</th> 
+      <th>source</th> 
+    </tr> 
+  </thead>
+  <tbody>
+  </tbody>
+  </table></p>
   <h4>Toxicology Data</h4>
-  <p><table id="tableTOX"></table></p>
+  <p><table id="tableTOX" class="tablesorter">
+  <thead>
+    <tr>
+      <th>material label</th> 
+      <th>property</th> 
+      <th>provider</th> 
+      <th>source</th> 
+    </tr> 
+  </thead>
+  <tbody>
+  </tbody>
+  </table></p>
 
   <h3>JSON reply</h3>
   <p><div id="json">Nothing yet</div></p>
 
   <!-- dynamically create a table with type information -->
   <script type="text/javascript">
+
+    $("#tableP-CHEM").tablesorter({
+    theme : 'blue',
+    sortList: [[0,0],[1,0]]
+  });
+  $("#tableTOX").tablesorter({
+    theme : 'blue',
+    sortList: [[0,0],[1,0]]
+  });
 
 var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");  
 
