@@ -70,6 +70,7 @@ var processSubstance = function(success, status, response){
       uuidOwner = owner.company.uuid
       uuidOwner = owner.company.uuid
       name = owner.company.name
+      topCath = substance.protocol.topcategory
       content =
         "<tr><td><a href=\"https://apps.ideaconsult.net/enanomapper/substance/" + uuid + "/study\">" + materialNames[uuid] +
         "</a></td><td>" + substance.protocol.endpoint +
@@ -81,7 +82,7 @@ var processSubstance = function(success, status, response){
         "</a></td>"
       }
       content += "</tr>";
-      document.getElementById("table").innerHTML += content;
+      document.getElementById("table"+topCath).innerHTML += content;
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
