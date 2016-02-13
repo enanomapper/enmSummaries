@@ -62,6 +62,8 @@ svg.append("g")
 var processSubstance = function(success, status, response){
   document.getElementById("json").innerHTML = "<pre>" + JSON.stringify(response, null, '  ') + "</pre>";
   var size;
+  $("#tableP-CHEM").tablesorter();
+  $("#tableTOX").tablesorter();
   for (i=0;i<response.study.length;i++) {
     substance = response.study[i]
     owner = substance.owner
