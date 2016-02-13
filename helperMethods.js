@@ -61,16 +61,6 @@ svg.append("g")
 
 var processSubstance = function(success, status, response){
   document.getElementById("json").innerHTML = "<pre>" + JSON.stringify(response, null, '  ') + "</pre>";
-
-  $("#tableP-CHEM").tablesorter({
-    theme : 'blue',
-    sortList: [[0,0],[1,0]]
-  });
-  $("#tableTOX").tablesorter({
-    theme : 'blue',
-    sortList: [[0,0],[1,0]]
-  });
-
   var size;
   for (i=0;i<response.study.length;i++) {
     substance = response.study[i]

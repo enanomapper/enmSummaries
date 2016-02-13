@@ -113,6 +113,15 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
 
 var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");
 
+  $("#tableP-CHEM").tablesorter({
+    theme : 'blue',
+    sortList: [[0,0],[1,0]]
+  });
+  $("#tableTOX").tablesorter({
+    theme : 'blue',
+    sortList: [[0,0],[1,0]]
+  });
+
 compound = "https://apps.ideaconsult.net/enanomapper/compound/85/conformer/85"
 searcher.listForCompound(compound, processList);
   </script>
