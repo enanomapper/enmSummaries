@@ -85,7 +85,9 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   <script type="text/javascript">
 
 var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");  
-searcher.search("ZnO", "name", processList);
+
+compound = "https://apps.ideaconsult.net/enanomapper/compound/77/conformer/77"
+searcher.listForCompound(compound, processList);
   </script>
 
   <script>
