@@ -62,8 +62,6 @@ svg.append("g")
 var processSubstance = function(success, status, response){
   document.getElementById("json").innerHTML = "<pre>" + JSON.stringify(response, null, '  ') + "</pre>";
   var size;
-  $("#tableP-CHEM").tablesorter();
-  $("#tableTOX").tablesorter();
   for (i=0;i<response.study.length;i++) {
     substance = response.study[i]
     owner = substance.owner
@@ -85,7 +83,6 @@ var processSubstance = function(success, status, response){
       content += "</td></tr>";
       //document.getElementById("content"+topCath).innerHTML += content;
       $("#table" + topCath + " tbody").append(content);
-      $("#table" + topCath).trigger("update");
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
@@ -121,9 +118,8 @@ var processSubstance = function(success, status, response){
     plot(".sizes", sizesVal);
     plot(".zetas", zetasVal);
   }
-  var sorting = [[0,0],[1,0]];
-  $("#tableTOX").trigger("sorton",[sorting]);
-  $("#tableP-CHEM").trigger("sorton",[sorting]);
+  $("#tableP-CHEM").tablesorter();
+  $("#tableTOX").tablesorter();
 };
 
 var processList = function(success, status, response){
