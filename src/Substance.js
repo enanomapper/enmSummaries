@@ -36,11 +36,12 @@ Ambit.Substance.prototype.list = function(callback) {
  */
 Ambit.Substance.prototype.listForCompound = function(compound, callback) {
 	params = {};
-	params['compound_uri'] = compound;
+	params['compound_uri'] = escape(compound);
 	params['type'] = 'related';
 	var conceptWikiSearcher = $.ajax({
 		url: this.baseURL + "/substance",
 		dataType: 'json',
+		data: params,
 		success: function(response, status, request) {
 			callback.call(this, true, request.status, response);
 		},
