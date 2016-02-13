@@ -74,15 +74,15 @@ var processSubstance = function(success, status, response){
       content =
         "<tr><td><a href=\"https://apps.ideaconsult.net/enanomapper/substance/" + uuid + "/study\">" + materialNames[uuid] +
         "</a></td><td>" + substance.protocol.endpoint +
-        "</td></td><td><a href=\"https://apps.ideaconsult.net/enanomapper/substanceowner/" + uuidOwner + "\">" + name +
+        "</td><td><a href=\"https://apps.ideaconsult.net/enanomapper/substanceowner/" + uuidOwner + "\">" + name +
         "</a></td><td>"
       if (substance.citation != null && substance.citation.title != null) {
         doiURI = substance.citation.title
-        content += "<a href=\"" + doiURI + "\">" + doiURI +
-        "</a></td>"
+        content += "<a href=\"" + doiURI + "\">" + doiURI + "</a>";
       }
-      content += "</tr>";
-      document.getElementById("content"+topCath).innerHTML += content;
+      content += "</td></tr>";
+      //document.getElementById("content"+topCath).innerHTML += content;
+      $("#content" + topCath + " tbody").append(content);
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
