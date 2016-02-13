@@ -84,8 +84,10 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   <!-- dynamically create a table with type information -->
   <script type="text/javascript">
 
-var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");  
-searcher.search("TiO2", "name", processList);
+var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");
+
+compound = "https://apps.ideaconsult.net/enanomapper/compound/85/conformer/85"
+searcher.listForCompound(compound, processList);
   </script>
 
   <script>
