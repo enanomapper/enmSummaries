@@ -118,6 +118,8 @@ var processSubstance = function(success, status, response){
     plot(".sizes", sizesVal);
     plot(".zetas", zetasVal);
   }
+  $("#tableTOX").tablesorter();
+  $("#tableP-CHEM").tablesorter();
 };
 
 var processList = function(success, status, response){
