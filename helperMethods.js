@@ -82,7 +82,7 @@ var processSubstance = function(success, status, response){
         "</a></td>"
       }
       content += "</tr>";
-      document.getElementById("table"+topCath).innerHTML += content;
+      document.getElementById("content"+topCath).innerHTML += content;
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
