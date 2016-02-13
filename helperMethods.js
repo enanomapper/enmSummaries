@@ -113,7 +113,7 @@ var processSubstance = function(success, status, response){
   if (workload > 0) {
     document.getElementById("workload").innerHTML = "" + workload + " still to load";
   } else if (workload == 0) {
-    document.getElementById("workload").innerHTML = "all done";
+    document.getElementById("workload").innerHTML = "";
     plot(".sizes", sizesVal);
     plot(".zetas", zetasVal);
   }
