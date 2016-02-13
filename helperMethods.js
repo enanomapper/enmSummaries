@@ -71,8 +71,11 @@ var processSubstance = function(success, status, response){
       uuidOwner = owner.company.uuid
       name = owner.company.name
       topCath = substance.protocol.topcategory
+      cath = substance.protocol.category.title
+      cathURL = substance.protocol.category.term
       content =
         "<tr><td><a href=\"https://apps.ideaconsult.net/enanomapper/substance/" + uuid + "/study\">" + materialNames[uuid] +
+        "</a></td><td><a href=\"" + cathURL + "\">" + cath +
         "</a></td><td>" + substance.protocol.endpoint +
         "</td><td><a href=\"https://apps.ideaconsult.net/enanomapper/substanceowner/" + uuidOwner + "\">" + name +
         "</a></td><td>"
