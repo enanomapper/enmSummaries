@@ -1,10 +1,13 @@
 # Engineered NanoMaterial Summaries
 
-= Dependencies
+Summaries of data available in the http://data.enanomapper.net/ database
+instance.
+
+## Dependencies
 
 * jQuery (and the tablesorter)
-* ambit.js
+* ambit.js 0.0.2
 
-= License
+## License
 
 MIT
