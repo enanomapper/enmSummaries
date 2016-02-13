@@ -83,6 +83,7 @@ var processSubstance = function(success, status, response){
       content += "</td></tr>";
       //document.getElementById("content"+topCath).innerHTML += content;
       $("#table" + topCath + " tbody").append(content);
+      $("#table" + topCath).trigger("update");
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
@@ -118,8 +119,9 @@ var processSubstance = function(success, status, response){
     plot(".sizes", sizesVal);
     plot(".zetas", zetasVal);
   }
-  $("#tableTOX").tablesorter();
-  $("#tableP-CHEM").tablesorter();
+  var sorting = [[0,0],[1,0]];
+  $("#tableTOX").trigger("sorton",[sorting]);
+  $("#tableP-CHEM").trigger("sorton",[sorting]);
 };
 
 var processList = function(success, status, response){
