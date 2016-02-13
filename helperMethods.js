@@ -120,9 +120,10 @@ var processSubstance = function(success, status, response){
 };
 
 var processList = function(success, status, response){
+  substanceCount = response.substance.length
   document.getElementById("summary").innerHTML =
-    "There are " + response.substance.length + " nanomaterials found."
-  for (i=0;i<response.substance.length;i++) {
+    "There are " + substanceCount + " nanomaterials found."
+  for (i=0;i<substanceCount;i++) {
     var substance = response.substance[i]
     uuid = substance.i5uuid
     materialNames[uuid] = substance.name;
@@ -199,6 +200,6 @@ var processList = function(success, status, response){
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
-      .text(function(d) { if (d.data.value > 10) return d.data.name; return "";});
+      .text(function(d) { if (d.data.value > substanceCount/5) return d.data.name; return "";});
 
 };
