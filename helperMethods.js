@@ -124,6 +124,50 @@ var processSubstance = function(success, status, response){
   }
 };
 
+var plotPie = function(data, where) {
+  var width = 200,
+    height = 300,
+    radius = Math.min(width, height) / 2;
+
+  var color = d3.scale.category20();
+
+  var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+  var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.value; });
+
+  var svg = d3.select("." + where).append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr(
+      "transform",
+      "translate(" + width / 2 + "," + height / 2 + ")"
+    );
+
+  data.forEach(function(d) {
+    d.value = +d.value;
+  });
+  
+  var g = svg.selectAll(".chart")
+      .data(pie(data))
+      .enter().append("g")
+      .attr("class", "chart");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.name); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { if (d.data.value > substanceCount/5) return d.data.name; return "";});
+}
+
 var processList = function(success, status, response){
   substanceCount = response.substance.length
   document.getElementById("summary").innerHTML =
@@ -137,7 +181,7 @@ var processList = function(success, status, response){
     document.getElementById("workload").innerHTML = "" + workload;
   }
 
-  // make a plot
+  // make a provider pie chart
   var data = [];
 
   // count the units
@@ -165,46 +209,7 @@ var processList = function(success, status, response){
     data.push({name:keyStr, value:unitCounts[key]})
   }
 
-  var width = 200,
-    height = 300,
-    radius = Math.min(width, height) / 2;
-
-  var color = d3.scale.category20();
-
-  var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(0);
-
-  var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.value; });
-
-  var svg = d3.select(".chart").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr(
-      "transform",
-      "translate(" + width / 2 + "," + height / 2 + ")"
-    );
-
-  data.forEach(function(d) {
-    d.value = +d.value;
-  });
-  
-  var g = svg.selectAll(".chart")
-      .data(pie(data))
-      .enter().append("g")
-      .attr("class", "chart");
-
-  g.append("path")
-      .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.name); });
-
-  g.append("text")
-      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .style("text-anchor", "middle")
-      .text(function(d) { if (d.data.value > substanceCount/5) return d.data.name; return "";});
+  plotPie(data, "chart");
 
 };
+
