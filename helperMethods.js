@@ -87,6 +87,11 @@ var processSubstance = function(success, status, response){
       //document.getElementById("content"+topCath).innerHTML += content;
       $("#table" + topCath + " tbody").append(content);
       $("#table" + topCath).trigger("update", [true]);
+      if (topCatCounts[topCath]) {
+        topCatCounts[topCath] = topCatCounts[topCath] + 1
+      } else {
+        topCatCounts[topCath] = 1
+      }
     }
     var study = response.study[i]
     for (j=0;j<study.effects.length;j++) {
@@ -121,6 +126,15 @@ var processSubstance = function(success, status, response){
     document.getElementById("workload").innerHTML = "";
     plot(".sizes", sizesVal);
     plot(".zetas", zetasVal);
+
+    // now convert the topCat counts to data
+    for (key in topCatCounts) {
+      keyStr = key
+      if (keyStr.length > 16) keyStr = keyStr.substring(0,14) + ".."
+        data.push({name:keyStr, value:topCatCounts[key]})
+    }
+
+    plotPie(data, "props");
   }
 };
 
