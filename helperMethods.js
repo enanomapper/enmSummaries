@@ -65,7 +65,7 @@ var processSubstance = function(success, status, response){
   for (i=0;i<response.study.length;i++) {
     substance = response.study[i]
     owner = substance.owner
-    if (owner.company != null && owner.company.name != "MODENA") {
+    if (owner.company != null && owner.company.name != null) {
       uuid = substance.owner.substance.uuid
       uuidOwner = owner.company.uuid
       uuidOwner = owner.company.uuid
