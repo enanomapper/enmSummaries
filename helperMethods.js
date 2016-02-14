@@ -128,6 +128,7 @@ var processSubstance = function(success, status, response){
     plot(".zetas", zetasVal);
 
     // now convert the topCat counts to data
+    var data = [];
     for (key in topCatCounts) {
       keyStr = key
       if (keyStr.length > 16) keyStr = keyStr.substring(0,14) + ".."
