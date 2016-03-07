@@ -7,6 +7,8 @@ var margin = {top: 10, right: 30, bottom: 30, left: 30},
     width = 400 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
+    if (values.length == 0) return;
+
 console.log("values: ")
 console.log(values)
 
