@@ -8,7 +8,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 30},
     height = 200 - margin.top - margin.bottom;
 
     if (values.length < 2) {
-      d3.select(where).append("<span>Not enough data.</span>")
+      $(where).append("<span>Not enough data.</span>")
       return; // cannot plot with less than 2 data points
     }
 
