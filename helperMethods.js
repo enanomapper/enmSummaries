@@ -9,7 +9,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 30},
 
     if (values.length == 0) return;
 
-console.log("values: ")
+console.log("values: " + values.length)
 console.log(values)
 
 var x = d3.scale.linear()
