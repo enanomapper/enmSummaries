@@ -1,9 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
+<head>
+  <title>Silver</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--
 
-Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity.nl>
+Copyright (c) 2013-2016  Egon Willighagen <egon.willighagen@maastrichtuniversity.nl>
 
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
@@ -27,8 +29,6 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
  OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<head>
-  <title>Silver</title>
 
   <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="jquery.tablesorter.js"></script>
@@ -55,34 +55,34 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
 
 <body>
   <h1>Silver</h1>
-  <p><div id="summary"></div></p>
-  <p><div id="workload"></div></p>
-  <p><div>Summary problems can be reported
+  <div id="summary"></div>
+  <div id="workload"></div>
+  <div>Summary problems can be reported
     <a href="https://github.com/enanomapper/enmSummaries/issues">here</a>;
     issues with the data itself can be reported
     <a href="https://github.com/enanomapper/data.enanomapper.net/issues">here</a>.
     Copyright and license information for the various data bundles can be found
-    <a href="https://apps.ideaconsult.net/enanomapper/bundle">here</a>.</div></p>
+    <a href="https://apps.ideaconsult.net/enanomapper/bundle">here</a>.</div>
   <table>
   <tr>
-    <td width="400px">
+    <td style="width:400px">
       <h3>Sizes (nm)</h3>
-      <p><div class="sizes"></div></p><br />
+      <div class="sizes"></div><br />
       <h3>Zeta Potentials (mV)</h3>
-      <p><div class="zetas"></div></p>
+      <div class="zetas"></div>
     </td>
-    <td width="200px">
+    <td style="width:200px">
       <h3>Providers</h3>
-      <p><div class="chart"></div></p>
+      <div class="chart"></div><br />
       <h3>Properties</h3>
-      <p><div class="props"></div></p>
+      <div class="props"></div>
     </td>
   </tr>
   </table>
 
   <h3>All materials</h3>
   <h4>PhysChem Data</h4>
-  <p><table id="tableP-CHEM" class="tablesorter">
+  <table id="tableP-CHEM" class="tablesorter">
   <thead>
     <tr>
       <th>material label</th> 
@@ -94,9 +94,9 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   </thead>
   <tbody>
   </tbody>
-  </table></p>
+  </table>
   <h4>Toxicology Data</h4>
-  <p><table id="tableTOX" class="tablesorter">
+  <table id="tableTOX" class="tablesorter">
   <thead>
     <tr>
       <th>material label</th> 
@@ -108,13 +108,12 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
   </thead>
   <tbody>
   </tbody>
-  </table></p>
+  </table>
 
   <h3>JSON reply</h3>
-  <p><div id="json">Nothing yet</div></p>
+  <div id="json">Nothing yet</div>
 
   <!-- dynamically create a table with type information -->
-
   <script type="text/javascript">
 
   $("#tableP-CHEM").tablesorter({
@@ -126,8 +125,8 @@ Copyright (c) 2013-2015  Egon Willighagen <egon.willighagen@maastrichtuniversity
     sortList: [[0,0],[1,0]]
   });
 
-var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");  
 
+var searcher = new Ambit.Substance("https://apps.ideaconsult.net/enanomapper");
 compound = "https://apps.ideaconsult.net/enanomapper/compound/71/conformer/71"
 searcher.listForCompound(compound, processList);
   </script>
