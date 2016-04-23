@@ -102,7 +102,7 @@ var processSubstance = function(success, status, response){
     for (j=0;j<study.effects.length;j++) {
       var effect = study.effects[j]
       // console.log("effect: " + effect)
-      if (effect.endpoint == "PARTICLE SIZE") {
+      if (effect.endpoint == "PARTICLE SIZE" || effect.endpoint == "PRIMARY SIZE 1ST DIMENSION") {
         if (effect.result.unit == "nm") {
           if (effect.result.loValue) {
             size = effect.result.loValue;
